@@ -1,18 +1,49 @@
 import plantas.*
+
+
 describe "Test de Plantas"  {
 	
-	const menta1 = new Menta()
-	
-	method initialize() {
-		menta1.valor(3)
+		const menta1 = new Menta(altura=1, anioObtencionSemilla=2020)
+		const menta2 = new Menta(altura= 0.3, anioObtencionSemilla=2020)
+		const soja1 = new Soja(altura= 0.6, anioObtencionSemilla=2009)
+		const quinoa1 = new Quinoa(altura= 0.6, anioObtencionSemilla=2010, toleraHorasDeSol=12)
+		const quinoa2 = new Quinoa(altura= 0.6, anioObtencionSemilla=2001, toleraHorasDeSol=9)
+		const hierba1 = new HierbaBuena(altura= 1, anioObtencionSemilla=2001)
+		
+		test "una menta de 1 metro, debería dar semillas y ocupar un espacio de 3 metros cuadrados." {		
+				assert.that(menta1.daNuevasSemillas())
+				assert.equals(3, menta1.espacioQueOcupa())
+			}
+			
+		test "una menta de solo 0.3 metros, no debería dar semillas y ocuparía 0.9 m2 de espacio." {		
+				assert.notThat(menta2.daNuevasSemillas())
+				assert.equals(0.9, menta2.espacioQueOcupa())
+			}
+		
+		test "una soja de 0.6 metros y de semilla de 2009, la planta tendría una tolerancia al sol de 7 horas, no daría semillas y ocuparía 0.3 m2." {		
+				assert.notThat(soja1.daNuevasSemillas())
+				assert.equals(0.3, soja1.espacioQueOcupa())
+				assert.equals(7, soja1.toleraHorasDeSol())
+			}
+			
+		test "si tenemos una quinoa que tolera 12 horas de sol y su semilla de origen es de 2010, se trata de una planta que da semillas." {		
+				assert.that(quinoa1.daNuevasSemillas())
+				//assert.equals(0.3, quinoa1.espacioQueOcupa())
+				//assert.equals(7, quinoa1.toleraHorasDeSol())
+			}
+			
+		test "si tenemos una planta que tolere 9 horas de sol pero cuya semilla de origen es de 2001, también da semillas." {		
+				assert.that(quinoa2.daNuevasSemillas())
+				//assert.equals(0.3, quinoa2.espacioQueOcupa())
+				//assert.equals(7, quinoa2.toleraHorasDeSol())
+			}
+			
+		test "hierva buena." {		
+				assert.equals(6, hierba1.espacioQueOcupa())
+			}
 	}
 	
-	test "Menta - test de ejemplo" {
-		assert.equals(3, menta1.valor())
 
-	}
-	
-}
 
 
 

@@ -1,2 +1,44 @@
 import parcelas.*
+import plantas.*
+
+describe "Test de Parcelas" {
+	
+	const parcela1 = new ParcelaEcologica(ancho=20, largo=1, horasDeSolQueRecibe=8)
+	const parcela2 = new ParcelaEcologica(ancho=20, largo=1, horasDeSolQueRecibe=5)
+	const soja1 = new Soja(altura= 1.5, anioObtencionSemilla=2009)
+	const soja2 = new Soja(altura= 1.5, anioObtencionSemilla=2009)
+	const soja3 = new Soja(altura= 1.5, anioObtencionSemilla=2009)
+	const soja4 = new Soja(altura= 1.5, anioObtencionSemilla=2009)
+	const soja5 = new Soja(altura= 1.5, anioObtencionSemilla=2009)
+	
+	test "Una parcela de 20 mts. de ancho por 1 mt. de largo que recibe 8 horas de sol por día, 
+			tiene una superficie de 20 m2 y la cantidad máxima de plantas que tolera es de " {		
+				
+				assert.equals(4, parcela1.cantidadMaximaDePlantas())
+			}
+			
+	test "plantar1 puede agregar" {		
+				parcela1.plantar(soja1)
+				parcela1.plantar(soja2)
+				parcela1.plantar(soja3)
+				parcela1.plantar(soja4)
+				assert.equals(4, parcela1.cantidadMaximaDePlantas())
+			}
+			
+	test "plantar2 no se puede agrgar" {		
+				parcela1.plantar(soja1)
+				parcela1.plantar(soja2)
+				parcela1.plantar(soja3)
+				parcela1.plantar(soja4)
+				assert.throwsExceptionWithMessage("No se puede plantar una planta",{ 
+				parcela1.plantar(soja5)				
+				})	
+			}
+			
+	test "plantar3 mucho sol" {		
+				assert.throwsExceptionWithMessage("No se puede plantar una planta",{ 
+				parcela2.plantar(soja5)				
+				})	
+			}						
+}
 
