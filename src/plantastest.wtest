@@ -5,7 +5,7 @@ describe "Test de Plantas"  {
 	
 		const menta1 = new Menta(altura=1, anioObtencionSemilla=2020)
 		const menta2 = new Menta(altura= 0.3, anioObtencionSemilla=2020)
-		const soja1 = new Soja(altura= 0.6, anioObtencionSemilla=2009)
+		const soja1 = new Soja(altura= 0.6, anioObtencionSemilla=2009)	
 		const quinoa1 = new Quinoa(altura= 0.6, anioObtencionSemilla=2010, toleraHorasDeSol=12)
 		const quinoa2 = new Quinoa(altura= 0.6, anioObtencionSemilla=2001, toleraHorasDeSol=9)
 		const hierba1 = new HierbaBuena(altura= 1, anioObtencionSemilla=2001)
@@ -28,14 +28,10 @@ describe "Test de Plantas"  {
 			
 		test "si tenemos una quinoa que tolera 12 horas de sol y su semilla de origen es de 2010, se trata de una planta que da semillas." {		
 				assert.that(quinoa1.daNuevasSemillas())
-				//assert.equals(0.3, quinoa1.espacioQueOcupa())
-				//assert.equals(7, quinoa1.toleraHorasDeSol())
 			}
 			
 		test "si tenemos una planta que tolere 9 horas de sol pero cuya semilla de origen es de 2001, también da semillas." {		
 				assert.that(quinoa2.daNuevasSemillas())
-				//assert.equals(0.3, quinoa2.espacioQueOcupa())
-				//assert.equals(7, quinoa2.toleraHorasDeSol())
 			}
 			
 		test "hierva buena." {		

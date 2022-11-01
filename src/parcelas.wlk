@@ -36,6 +36,8 @@ class ParcelaIndustrial inherits Parcela {
 object inta {
 	const property parcelas = []
 	
+	method agregarParcelas(unaParcela) { parcelas.add(unaParcela) }
+	
 	method sumaDePlantasPorParcela() = parcelas.sum({parcela => parcela.plantas().size()}) 
 	
 	method promedioDePlantasPorParela() = self.sumaDePlantasPorParcela() / parcelas.size()
