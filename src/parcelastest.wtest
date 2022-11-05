@@ -1,3 +1,6 @@
+/*
+ * Ahora falla un test porque no se pudo agregar
+ */
 import parcelas.*
 import plantas.*
 
