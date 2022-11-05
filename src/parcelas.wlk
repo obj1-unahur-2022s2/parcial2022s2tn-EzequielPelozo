@@ -1,3 +1,6 @@
+/*
+ * En plantar(unaPlanta) el add() de la planta debería ocurrir si todo va bien. En tu caso debería ir al final. Recordando que lanzar una excepción aborta la ejecucion del código. De acuerdo a como ajusté el método si ahora se lanza la execpcion nunca se ejecutaría el add()
+ */
 import plantas.*
 
 class Parcela {
@@ -12,10 +15,10 @@ class Parcela {
 	method tieneComplicaciones() = plantas.any({ p => p.toleraHorasDeSol() < horasDeSolQueRecibe})
 	
 	method plantar(unaPlanta){
-		plantas.add(unaPlanta)
 		if(self.cantidadMaximaDePlantas() < plantas.size() || horasDeSolQueRecibe + 2 < unaPlanta.toleraHorasDeSol() ){
 			self.error("No se puede plantar una planta")
 		}
+		plantas.add(unaPlanta)
 	}
 	
 	method noHayPLantasMayorUnMetroYMedio() = plantas.all({p => p.altura() < 1.5})
